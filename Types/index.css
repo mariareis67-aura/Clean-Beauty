@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased bg-nude-50 text-neutral-900;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .dark body {
+    @apply bg-neutral-950 text-neutral-100;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-nude-800 text-white font-sans font-medium text-sm tracking-widest uppercase transition-all duration-300 hover:bg-nude-900 hover:shadow-luxury-lg active:scale-95;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-3.5 border border-nude-800 text-nude-800 font-sans font-medium text-sm tracking-widest uppercase transition-all duration-300 hover:bg-nude-800 hover:text-white active:scale-95;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-3.5 font-sans font-medium text-sm tracking-widest uppercase transition-all duration-300 active:scale-95;
+    background: linear-gradient(135deg, #d4a574 0%, #f59e0b 100%);
+    color: white;
+  }
+
+  .btn-gold:hover {
+    background: linear-gradient(135deg, #c4955e 0%, #d97706 100%);
+    box-shadow: 0 4px 20px rgba(245,158,11,0.35);
+  }
+
+  .card-product {
+    @apply bg-white dark:bg-neutral-900 overflow-hidden transition-all duration-500 hover:-translate-y-1;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+  }
+
+  .card-product:hover {
+    box-shadow: 0 8px 50px rgba(0,0,0,0.12);
+  }
+
+  .section-title {
+    @apply font-display text-4xl md:text-5xl lg:text-6xl font-light leading-tight;
+  }
+
+  .section-subtitle {
+    @apply font-sans text-xs tracking-[0.25em] uppercase font-medium;
+    color: #cc8252;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-transparent border border-neutral-200 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 font-sans text-sm placeholder-neutral-400 focus:outline-none focus:border-nude-400 transition-colors duration-200;
+  }
+
+  .nav-link {
+    @apply font-sans text-xs tracking-widest uppercase font-medium transition-colors duration-200;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #c4955e 0%, #f59e0b 50%, #c4955e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-blur-glass {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.loading-bar {
+  height: 2px;
+  background: linear-gradient(90deg, #c4955e, #f59e0b, #c4955e);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #f5f0eb; }
+::-webkit-scrollbar-thumb { background: #cc8252; border-radius: 3px; }
+.dark ::-webkit-scrollbar-track { background: #1a1a1a; }
+.dark ::-webkit-scrollbar-thumb { background: #7d432c; }
